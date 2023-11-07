@@ -7,8 +7,30 @@
     <link rel="icon" type="image/x-icon" href="/Assets/favico.ico" />
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/utillities.css" />
+
+    <!-- Font Awesome CDN to get icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
   </head>
   <body>
-    <h1>Hello World</h1>
+    <!-- Adding task section -->
+    <div class="add-task">
+      <input type="text" id="addTaskName" placeholder="Enter a task" />
+      <button id="addTask">Add Task</button>
+    </div>
+
+    <!-- Task table section -->
+    <div class="task-list">
+      <table id="taskList">
+        <tr>
+          <th>Task Name</th>
+          <th>Completed</th>
+          <th>Actions</th>
+        </tr>
+      </table>
+    </div>
   </body>
 </html>
+<script src="./JS/script.js"></script>
