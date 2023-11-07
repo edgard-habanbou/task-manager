@@ -20,10 +20,15 @@
       <input type="text" id="addTaskName" placeholder="Enter a task" />
       <button id="addTask">Add Task</button>
     </div>
-
+    <div class="filter">
+      <span>Filter Tasks By</span>
+      <button id="CompletedTasks">Completed</button>
+      <button id="ActiveTasks">Active</button>
+      <button id="allTasks">All</button>
+    </div>
     <!-- Task table section -->
     <div class="task-list">
-      <table id="taskList">
+      <table class="tasks" id="taskList">
         <tr>
           <th>Task Name</th>
           <th>Completed</th>
