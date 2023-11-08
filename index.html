@@ -7,6 +7,8 @@
     <link rel="icon" type="image/x-icon" href="/Assets/favico.ico" />
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/utillities.css" />
+    <link rel="stylesheet" href="./styles/tooltip.css" />
+    <link rel="stylesheet" href="./styles/table.css" />
 
     <!-- Font Awesome CDN to get icons -->
     <link
@@ -15,26 +17,37 @@
     />
   </head>
   <body>
-    <!-- Adding task section -->
-    <div class="add-task">
-      <input type="text" id="addTaskName" placeholder="Enter a task" />
-      <button id="addTask">Add Task</button>
-    </div>
-    <div class="filter">
-      <span>Filter Tasks By</span>
-      <button id="CompletedTasks">Completed</button>
-      <button id="ActiveTasks">Active</button>
-      <button id="allTasks">All</button>
-    </div>
-    <!-- Task table section -->
-    <div class="task-list">
-      <table class="tasks" id="taskList">
-        <tr>
-          <th>Task Name</th>
-          <th>Completed</th>
-          <th>Actions</th>
-        </tr>
-      </table>
+    <div class="wrapper">
+      <div class="header">
+        <h1><i class="fa-solid fa-square-check"></i> Tasks</h1>
+      </div>
+      <!-- Adding task section -->
+      <div class="add-task">
+        <input
+          type="text"
+          id="addTaskName"
+          class="task-name-input"
+          placeholder="Enter a task"
+        />
+        <button class="add-task-btn" id="addTask">Add</button>
+        <hr />
+      </div>
+      <div class="filter">
+        <span>Filter Tasks By</span>
+        <button id="CompletedTasks">Completed</button>
+        <button id="ActiveTasks">Active</button>
+        <button id="allTasks">All</button>
+      </div>
+      <!-- Task table section -->
+      <div class="task-list">
+        <table class="tasks" id="taskList">
+          <tr>
+            <th class="col-control">Completed</th>
+            <th>Task Name</th>
+            <th class="col-control">Actions</th>
+          </tr>
+        </table>
+      </div>
     </div>
   </body>
 </html>

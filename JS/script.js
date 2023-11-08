@@ -11,12 +11,14 @@ addTask.addEventListener("click", function () {
 
     // Adding table row to the element
     task.innerHTML += `
+    <td id = "complete"><i class="fa-solid fa-x fa-xl" style="color: #ff0000;"></i></td>
+
     <td><span id = "taskName" class="task-name">${addTaskName.value}</span></td>
-    <td id = "complete"><i class="fa-solid fa-x" style="color: #ff0000;"></i></td>
-    <td> <button id="editTask" class="edit-task">Edit</button>
-        <button id="deleteTask" class="delete-task">Delete</button>
-        <button id="MarkAsComplete" class="mark-as-complete">Complete</button>
-        </td>
+    <td > 
+      <div class="tooltip"><button id="editTask" class="edit-task action-btn"><i class="fa-solid fa-pen-to-square  fa-2x"></i></button><span class="tooltiptext">Edit</span></div>
+      <div class="tooltip"><button id="deleteTask" class="delete-task action-btn"><i class="fa-solid fa-trash fa-2x"></i></button><span class="tooltiptext">Delete</span></div>
+      <div class="tooltip"><button id="MarkAsComplete" class="mark-as-complete action-btn"><i class="fas fa-check-square fa-2x"></i></button><span class="tooltiptext">Mark As Comlete</span></div>
+    </td>
     `;
 
     // Delete Task
@@ -29,7 +31,7 @@ addTask.addEventListener("click", function () {
     const MarkAsComplete = task.querySelector("#MarkAsComplete");
     MarkAsComplete.addEventListener("click", () => {
       task.querySelector("#complete").innerHTML =
-        '<i class="fa-solid fa-check" style="color: #00ff40;"></i>';
+        '<i class="fa-solid fa-check fa-2x" style="color: #00ff40;"></i>';
     });
 
     // Edit task
@@ -41,26 +43,26 @@ addTask.addEventListener("click", function () {
         taskName.textContent = editedName;
       }
     });
-    taskList.appendChild(task);
+    taskList.appendChild(task); //adding the row to the table
     addTaskName.value = "";
   } else {
     alert("Please enter a task name");
   }
 });
 
-// Filter section
-const allTasks = document.getElementById("allTasks");
-const CompletedTasks = document.getElementById("CompletedTasks");
-const ActiveTasks = document.getElementById("ActiveTasks");
-
+// Filter section start
 const tableRows = document.getElementsByTagName("tr");
-// show all tasks
+
+// Show all tasks
+const allTasks = document.getElementById("allTasks");
 allTasks.addEventListener("click", () => {
   for (let i = 0; i < tableRows.length; i++) {
     tableRows[i].removeAttribute("hidden");
   }
 });
 
+// Show completed tasks
+const CompletedTasks = document.getElementById("CompletedTasks");
 CompletedTasks.addEventListener("click", () => {
   for (let i = 1; i < tableRows.length; i++) {
     if (!tableRows[i].innerHTML.includes("fa-check")) {
@@ -71,6 +73,8 @@ CompletedTasks.addEventListener("click", () => {
   }
 });
 
+// Show active tasks
+const ActiveTasks = document.getElementById("ActiveTasks");
 ActiveTasks.addEventListener("click", () => {
   for (let i = 1; i < tableRows.length; i++) {
     if (tableRows[i].innerHTML.includes("fa-check")) {
@@ -80,3 +84,4 @@ ActiveTasks.addEventListener("click", () => {
     }
   }
 });
+// Filter section end

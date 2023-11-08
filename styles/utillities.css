@@ -2,4 +2,13 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+    background-color: #EFF0F3;
+    
+}
+body {
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
 }
