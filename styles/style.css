@@ -32,17 +32,19 @@
   text-align: center;
   box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.add-task-btn{
+
+.btn{
+  cursor: pointer;
   background-color: #000000;
   color: white;
   border:none;
-  width: 15%;
+  margin: 0 10px;
+  width: 10%;
   height: 50px;
   border-radius: 5px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
   font-weight: bold;
-
+  position: relative;
+  left: -20px;
 }
 .action-btn{
   border: none;
@@ -50,9 +52,22 @@
 hr{
   margin:  30px 0px;
 }
+.date-picker{
+  position: relative;
+  top: 5px;
+  border: none;
+}
+.date-tooltip{
+  left: -40px;
+}
+.due-date{
+  display: none;
+
+}
 /* Add task section end  */
 
-
-.col-control{
-  width: 200px;
+/* Filter section start */
+.filter{
+  font-size: 30px;
+  font-weight: bolder;
 }

@@ -1,5 +1,5 @@
 const addTask = document.getElementById("addTask");
-
+const dateInput = document.getElementById("dueDate");
 const addTaskName = document.getElementById("addTaskName");
 const taskList = document.getElementById("taskList");
 
@@ -8,13 +8,16 @@ addTask.addEventListener("click", function () {
   if (addTaskName.value != "") {
     const task = document.createElement("tr");
     task.setAttribute("class", "task-name");
-
+    let selectedDate = dateInput.value;
+    if (selectedDate == "") {
+      selectedDate = "-";
+    }
     // Adding table row to the element
     task.innerHTML += `
     <td id = "complete"><i class="fa-solid fa-x fa-xl" style="color: #ff0000;"></i></td>
-
     <td><span id = "taskName" class="task-name">${addTaskName.value}</span></td>
-    <td > 
+    <td><span id = "taskName" class="task-name">${selectedDate}</span></td>
+    <td class="action-btns"> 
       <div class="tooltip"><button id="editTask" class="edit-task action-btn"><i class="fa-solid fa-pen-to-square  fa-2x"></i></button><span class="tooltiptext">Edit</span></div>
       <div class="tooltip"><button id="deleteTask" class="delete-task action-btn"><i class="fa-solid fa-trash fa-2x"></i></button><span class="tooltiptext">Delete</span></div>
       <div class="tooltip"><button id="MarkAsComplete" class="mark-as-complete action-btn"><i class="fas fa-check-square fa-2x"></i></button><span class="tooltiptext">Mark As Comlete</span></div>
@@ -43,13 +46,27 @@ addTask.addEventListener("click", function () {
         taskName.textContent = editedName;
       }
     });
-    taskList.appendChild(task); //adding the row to the table
+    taskList.appendChild(task); //adding the row to the tablev
     addTaskName.value = "";
   } else {
     alert("Please enter a task name");
   }
 });
+// Due date section start
 
+const dateButton = document.getElementById("datePicker");
+
+dateButton.addEventListener("click", () => {
+  dateInput.showPicker();
+});
+
+dateInput.addEventListener("input", () => {
+  // You can perform additional actions here when the date is selected
+  const selectedDate = dateInput.value;
+  console.log("Selected date:", selectedDate);
+});
+
+// Due date section end
 // Filter section start
 const tableRows = document.getElementsByTagName("tr");
 
@@ -65,7 +82,8 @@ allTasks.addEventListener("click", () => {
 const CompletedTasks = document.getElementById("CompletedTasks");
 CompletedTasks.addEventListener("click", () => {
   for (let i = 1; i < tableRows.length; i++) {
-    if (!tableRows[i].innerHTML.includes("fa-check")) {
+    // check if row has a check sign(✔️) or ❌
+    if (!tableRows[i].innerHTML.includes(" fa-check ")) {
       tableRows[i].setAttribute("hidden", "true");
     } else {
       tableRows[i].removeAttribute("hidden");
@@ -77,7 +95,8 @@ CompletedTasks.addEventListener("click", () => {
 const ActiveTasks = document.getElementById("ActiveTasks");
 ActiveTasks.addEventListener("click", () => {
   for (let i = 1; i < tableRows.length; i++) {
-    if (tableRows[i].innerHTML.includes("fa-check")) {
+    // check if row has a check sign(✔️) or ❌
+    if (tableRows[i].innerHTML.includes(" fa-check ")) {
       tableRows[i].setAttribute("hidden", "false");
     } else {
       tableRows[i].removeAttribute("hidden");
