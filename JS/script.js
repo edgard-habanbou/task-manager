@@ -15,8 +15,8 @@ addTask.addEventListener("click", function () {
     // Adding table row to the element
     task.innerHTML += `
     <td id = "complete"><i class="fa-solid fa-x fa-xl" style="color: #ff0000;"></i></td>
-    <td><span id = "taskName" class="task-name">${addTaskName.value}</span></td>
-    <td><span id = "taskName" class="task-name">${selectedDate}</span></td>
+    <td><div><div class="tooltip"><span contenteditable id = "taskName" class="task-name">${addTaskName.value}</span><span class="tooltiptext">Click To Edit</span></div></div></td>
+    <td><span>${selectedDate}</span></td>
     <td class="action-btns"> 
       <div class="tooltip"><button id="editTask" class="edit-task action-btn"><i class="fa-solid fa-pen-to-square  fa-2x"></i></button><span class="tooltiptext">Edit</span></div>
       <div class="tooltip"><button id="deleteTask" class="delete-task action-btn"><i class="fa-solid fa-trash fa-2x"></i></button><span class="tooltiptext">Delete</span></div>
@@ -40,6 +40,7 @@ addTask.addEventListener("click", function () {
     // Edit task
     const editTask = task.querySelector("#editTask");
     const taskName = task.querySelector("#taskName");
+
     editTask.addEventListener("click", () => {
       const editedName = prompt("Edit task name:", addTaskName.value);
       if (editedName.value != "") {
