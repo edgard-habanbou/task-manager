@@ -1,8 +1,7 @@
 .tasks {
-    font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
-    margin-top: 50px;
+    margin: 50px;
+    border-radius: 10px;
   }
 .tasks i{
   margin: 10px;
