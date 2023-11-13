@@ -61,12 +61,6 @@ dateButton.addEventListener("click", () => {
   dateInput.showPicker();
 });
 
-dateInput.addEventListener("input", () => {
-  // You can perform additional actions here when the date is selected
-  const selectedDate = dateInput.value;
-  console.log("Selected date:", selectedDate);
-});
-
 // Due date section end
 // Filter section start
 const tableRows = document.getElementsByTagName("tr");
